@@ -1,6 +1,6 @@
 # Example Terraform App
 
-> For a crash
+> See [key concepts](#key-concepts) for a brief overview of **Infrastructure as Code** and **Terraform**.
 
 This repository contains an example of how to deploy a basic web server using **Infrastructure as Code** + **Terraform**. The deployment consists of two services:
 
@@ -83,7 +83,7 @@ notes:
 
 - if you have created your application's Docker image locally (i.e. `example-app:latest`), then the `terraform destroy` command will also remove the Docker image from your local machine. If you want to keep the Docker image, then you will need to tag it as `example-app:origin` at build time and then tag it as `example-app:latest` when you want to use it with Terraform. This way, Terraform will not remove the `example-app:origin` image when you run `terraform destroy`. Alternatively, you can push the `example-app:latest` image to a Docker registry (e.g. Docker Hub) and then pull it when you want to use it with Terraform.
 
-## Documentation
+## Key Concepts
 
 ## Infrastructure as Code (IaC)
 
