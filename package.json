@@ -1,0 +1,24 @@
+{
+  "name": "example-terraform-app",
+  "description": "An example app for deploying with Terraform",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "docker:build": "docker build -t example-terraform-app .",
+    "docker:run": "docker run -p 3000:3000 example-terraform-app",
+    "docker:tag": "docker tag example-terraform-app:latest thisoliver/terraform-example-app:latest",
+    "docker:push": "pnpm docker:build && pnpm docker:tag && docker push thisoliver/terraform-example-app:latest",
+    "tf:init": "cd deploy/terraform && terraform init",
+    "tf:plan": "cd deploy/terraform && terraform plan --var nginx_config=$(pwd)/nginx/default.conf --out=tfplan",
+    "tf:apply": "cd deploy/terraform && terraform apply"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "18.19.0",
+    "pnpm": "8.15.1"
+  }
+}
